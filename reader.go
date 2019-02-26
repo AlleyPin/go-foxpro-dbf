@@ -16,6 +16,7 @@ import (
 	"time"
 
 	"github.com/carlosjhr64/jd"
+	"github.com/rs/zerolog/log"
 )
 
 var (
@@ -139,7 +140,11 @@ func (dbf *DBF) FieldNames() []string {
 	num := len(dbf.fields)
 	names := make([]string, num)
 	for i := 0; i < num; i++ {
-		names[i] = dbf.fields[i].FieldName()
+		n, err := dbf.toUTF8String([]byte(dbf.fields[i].FieldName()))
+		if err != nil {
+			log.Warn().Err(err).Msg("Decorde error.")
+		}
+		names[i] = n
 	}
 	return names
 }
@@ -148,7 +153,11 @@ func (dbf *DBF) FieldNames() []string {
 // or -1 if not found.
 func (dbf *DBF) FieldPos(fieldname string) int {
 	for i := 0; i < len(dbf.fields); i++ {
-		if dbf.fields[i].FieldName() == fieldname {
+		n, err := dbf.toUTF8String([]byte(dbf.fields[i].FieldName()))
+		if err != nil {
+			log.Warn().Err(err).Msg("Decorde error.")
+		}
+		if n == fieldname {
 			return i
 		}
 	}
