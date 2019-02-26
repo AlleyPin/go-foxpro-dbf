@@ -49,7 +49,7 @@ func (d *Big5Decoder) Decode(in []byte) ([]byte, error) {
 	if utf8.Valid(in) {
 		return in, nil
 	}
-	r := transform.NewReader(bytes.NewReader(in), charmap.Windows1250.NewDecoder())
+	r := transform.NewReader(bytes.NewReader(in), traditionalchinese.Big5.NewDecoder())
 	data, err := ioutil.ReadAll(r)
 	if err != nil {
 		return nil, err
