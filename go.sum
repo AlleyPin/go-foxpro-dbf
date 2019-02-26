@@ -1,0 +1,4 @@
+github.com/carlosjhr64/jd v0.0.0-20161112153956-c2c3ee56c3e2 h1:cggp+UDAm3KvMfILi7YDhaV6EkomIZ0iOIEnSesoqo0=
+github.com/carlosjhr64/jd v0.0.0-20161112153956-c2c3ee56c3e2/go.mod h1:V9UGSxOuxbmll8bGcO5dKeI0zEV4zvVhMk2UthuVtg8=
+golang.org/x/text v0.3.0 h1:g61tztE5qeGQ89tm6NTjjM9VPIm088od1l6aSorWRWg=
+golang.org/x/text v0.3.0/go.mod h1:NqM8EUOU14njkJ3fqMW+pc6Ldnwhi/IjpwHt7yyuwOQ=
