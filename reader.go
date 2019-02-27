@@ -224,6 +224,9 @@ func (dbf *DBF) RecordToMap(nrec uint32) (map[string]interface{}, error) {
 	out := make(map[string]interface{})
 	for i, fn := range dbf.FieldNames() {
 		val, err := dbf.Field(i)
+		if val == nil {
+			continue
+		}
 		if err != nil {
 			return out, fmt.Errorf("error on field %s (column %d): %s", fn, i, err)
 		}
